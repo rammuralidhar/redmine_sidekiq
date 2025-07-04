@@ -1,5 +1,7 @@
 class SidekiqSandboxController < ApplicationController
-  unloadable
+  if Rails::VERSION::MAJOR < 7
+	unloadable
+  end
   before_action :require_admin
 
   def index
